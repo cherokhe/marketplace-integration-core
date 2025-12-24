@@ -2,14 +2,14 @@
   "name": "cherokhe/marketplace-integration-core-workspace",
   "description": "Workspace for marketplace-integration-core plus reference adapter and tests",
   "type": "project",
+  "version": "2.0.0",
   "license": "MIT",
   "require": {
     "php": ">=8.3",
-    "cherokhe/marketplace-integration-core": "*"
+    "cherokhe/marketplace-integration-core": "2.0.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^10.5",
-    "psr/log": "^3.0"
+    "phpunit/phpunit": "^10.5"
   },
   "repositories": [
     {
