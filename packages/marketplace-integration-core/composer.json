@@ -1,5 +1,5 @@
 {
-  "name": "marketplace/marketplace-integration-core",
+  "name": "cherokhe/marketplace-integration-core"
   "description": "Framework-agnostic core orchestration package for marketplace integrations",
   "type": "library",
   "license": "MIT",
