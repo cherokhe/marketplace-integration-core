@@ -1,43 +1,79 @@
 # MarketplaceIntegrationCore
 
+![PHP](https://img.shields.io/badge/PHP-%3E%3D%208.0-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Composer](https://img.shields.io/badge/Composer-Package-885630?style=for-the-badge&logo=composer&logoColor=white)
+![Architecture](https://img.shields.io/badge/Architecture-Adapter--Based-2563EB?style=for-the-badge)
+![Framework](https://img.shields.io/badge/Framework-Agnostic-059669?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-111827?style=for-the-badge)
+
 **MarketplaceIntegrationCore** is a framework-agnostic PHP core package for marketplace integration workflows.
 
 **MarketplaceIntegrationCore**, pazaryeri entegrasyon süreçlerini merkezi, tekrar kullanılabilir ve adapter tabanlı bir yapı üzerinden yönetmek için geliştirilmiş framework bağımsız bir PHP çekirdek paketidir.
 
 ---
 
-## Overview
+## Developer / Geliştirici
 
-This package provides a reusable core layer for product synchronization, stock synchronization, price updates, order ingestion, idempotent operations, lock handling and audit logging.
+**Coşkun KOÇ**  
+Full-Stack Developer | Laravel Developer | ERP/POS System Developer
 
-It is designed to be integrated with Laravel or any PHP-based business application through adapter contracts.
+[![Website](https://img.shields.io/badge/Website-laragon.com.tr-0A66C2?style=flat-square)](https://laragon.com.tr)
+[![Email](https://img.shields.io/badge/Email-entegrame%40gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:entegrame@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Co%C5%9Fkun%20KO%C3%87-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/coşkun-koç-bb6981426)
 
-## Türkçe Açıklama
+---
 
-Bu paket; ürün senkronizasyonu, stok senkronizasyonu, fiyat güncelleme, sipariş alma, idempotent işlem kontrolü, lock mekanizması ve audit log süreçleri için tekrar kullanılabilir bir core katman sunar.
+## Overview / Genel Bakış
 
-Laravel veya farklı PHP tabanlı iş uygulamalarına adapter contract yapısı üzerinden entegre edilecek şekilde tasarlanmıştır.
+This package provides a reusable core layer for marketplace integration systems.
+
+It helps organize product synchronization, stock synchronization, price updates, order ingestion, idempotent operations, lock handling and audit logging under a clean adapter-based architecture.
+
+Bu paket, pazaryeri entegrasyon sistemleri için tekrar kullanılabilir bir core katman sunar.
+
+Ürün senkronizasyonu, stok senkronizasyonu, fiyat güncelleme, sipariş alma, idempotent işlem kontrolü, lock mekanizması ve audit log süreçlerini temiz bir adapter tabanlı mimari altında toplamayı hedefler.
 
 ---
 
 ## Core Features / Temel Özellikler
 
-- Product synchronization / Ürün senkronizasyonu
-- Stock synchronization / Stok senkronizasyonu
-- Price update flow / Fiyat güncelleme akışı
-- Order ingestion / Sipariş alma ve işleme
-- Adapter-based architecture / Adapter tabanlı mimari
-- Idempotency support / Tekrarlı işlem kontrolü
-- Lock mechanism / Kilit mekanizması
-- Audit logging / Audit log ve olay kaydı
-- Cursor-based incremental sync / Cursor tabanlı artımlı senkronizasyon
-- Batch operation support / Toplu işlem desteği
-- Framework-agnostic structure / Framework bağımsız yapı
-- Laravel-compatible implementation pattern / Laravel uyumlu kullanım deseni
+| Feature | Açıklama |
+|---|---|
+| Product Sync | Ürün senkronizasyonu |
+| Stock Sync | Stok senkronizasyonu |
+| Price Update Flow | Fiyat güncelleme akışı |
+| Order Ingestion | Sipariş alma ve işleme |
+| Adapter Architecture | Adapter tabanlı mimari |
+| Idempotency Support | Tekrarlı işlem kontrolü |
+| Lock Mechanism | Kilit mekanizması |
+| Audit Logging | Audit log ve olay kaydı |
+| Cursor Based Sync | Cursor tabanlı artımlı senkronizasyon |
+| Batch Support | Toplu işlem desteği |
+| Framework Agnostic | Framework bağımsız yapı |
+| Laravel Compatible | Laravel uyumlu kullanım deseni |
 
 ---
 
 ## Architecture / Mimari
+
+```text
+Host Business Application
+        |
+        v
+Application Adapter
+        |
+        v
+MarketplaceIntegrationCore
+        |
+        v
+Product / Stock / Order Flows
+        |
+        v
+Marketplace Driver Layer
+        |
+        v
+Marketplace APIs
+```
 
 MarketplaceIntegrationCore works through contracts and flow classes.
 
@@ -45,24 +81,13 @@ The host application implements the required contracts using its own adapter. Th
 
 MarketplaceIntegrationCore, contract ve flow sınıfları üzerinden çalışır.
 
-Ana uygulama, gerekli contract yapısını kendi adapter sınıfı ile implemente eder. Core flow katmanı, uygulamanın veritabanına, framework detaylarına veya iş mantığına doğrudan bağımlı olmadan bu adapter üzerinden çalışır.
-
-### Main Layers / Ana Katmanlar
-
-- Core contracts / Core contract yapısı
-- Flow classes / Akış sınıfları
-- Host application adapter / Ana uygulama adapter katmanı
-- Service bindings / Servis binding yapısı
-- Marketplace drivers / Pazaryeri driver katmanı
-- Queue jobs / Kuyruk işleri
-- Webhook handlers / Webhook işleyicileri
-- Audit logging / Audit log katmanı
+Ana uygulama gerekli contract yapısını kendi adapter sınıfı ile implemente eder. Core flow katmanı, uygulamanın veritabanına, framework detaylarına veya iş mantığına doğrudan bağımlı olmadan bu adapter üzerinden çalışır.
 
 ---
 
 ## Integration Flows / Entegrasyon Akışları
 
-### 1. Order Ingestion / Sipariş Alma
+### Order Ingestion / Sipariş Alma
 
 Order payloads from polling jobs or webhooks are passed into the core order ingestion flow.
 
@@ -74,7 +99,7 @@ Ana uygulama adapter katmanı, siparişleri upsert modeliyle işler. Böylece ay
 
 ---
 
-### 2. Product Synchronization / Ürün Senkronizasyonu
+### Product Synchronization / Ürün Senkronizasyonu
 
 Product changes are pulled through the adapter using cursor-based tracking.
 
@@ -86,7 +111,7 @@ Değişen ürünler pazaryeri driver katmanına gönderilebilir. Başarılı ve 
 
 ---
 
-### 3. Stock and Price Synchronization / Stok ve Fiyat Senkronizasyonu
+### Stock & Price Synchronization / Stok ve Fiyat Senkronizasyonu
 
 Stock and price changes are pulled from the host system and sent to marketplace drivers.
 
@@ -98,18 +123,18 @@ Akış; stok güvenlik tamponu, maksimum gösterilecek stok, toplu güncelleme, 
 
 ---
 
-## Adapter Contract Responsibilities / Adapter Sorumlulukları
+## Adapter Responsibilities / Adapter Sorumlulukları
 
-A host application adapter can implement the following responsibilities:
-
-- Pull product changes / Ürün değişikliklerini çekme
-- Push product changes / Ürün değişikliklerini gönderme
-- Pull stock changes / Stok değişikliklerini çekme
-- Push stock changes / Stok değişikliklerini gönderme
-- Ingest orders / Siparişleri işleme
-- Acquire and release locks / Lock alma ve bırakma
-- Write audit logs / Audit log yazma
-- Manage idempotent operations / Tekrarlı işlem kontrolü yapma
+| Adapter Responsibility | Türkçe |
+|---|---|
+| Pull product changes | Ürün değişikliklerini çekme |
+| Push product changes | Ürün değişikliklerini gönderme |
+| Pull stock changes | Stok değişikliklerini çekme |
+| Push stock changes | Stok değişikliklerini gönderme |
+| Ingest orders | Siparişleri işleme |
+| Acquire / release locks | Lock alma ve bırakma |
+| Write audit logs | Audit log yazma |
+| Manage idempotency | Tekrarlı işlem kontrolü yapma |
 
 ---
 
@@ -132,18 +157,18 @@ Yeni bir pazaryeri driver eklenirken ana uygulamada aşağıdaki yapılar hazır
 
 Recommended driver methods:
 
-Önerilen driver metodları:
-
-- checkConnection
-- getOrders
-- updateStock
-- updateStockAndPrice
-- getCategories
-- createProduct
-- getMarketplaceProducts
-- updateOrderStatus
-- fetchOrdersBetween
-- updateStockAndPriceBatch
+```text
+checkConnection
+getOrders
+updateStock
+updateStockAndPrice
+getCategories
+createProduct
+getMarketplaceProducts
+updateOrderStatus
+fetchOrdersBetween
+updateStockAndPriceBatch
+```
 
 ---
 
@@ -179,7 +204,7 @@ Custom behavior should live in the host module, adapter layer or package reposit
 
 Özel davranışlar doğrudan kurulu vendor dosyalarına yazılmak yerine ana modül, adapter katmanı veya paket reposu içinde tutulmalıdır.
 
-### Queue-Friendly Sync / Kuyruk Uyumlu Senkronizasyon
+### Queue Friendly Sync / Kuyruk Uyumlu Senkronizasyon
 
 Long-running synchronization tasks should run through queue workers.
 
@@ -193,26 +218,27 @@ Yoğun ürün, stok veya sipariş senkronizasyonları canlı ortamda normal web 
 
 ## Recommended Tests / Önerilen Testler
 
-- Contract binding tests / Contract binding testleri
-- Product sync flow tests / Ürün sync flow testleri
-- Stock sync flow tests / Stok sync flow testleri
-- Order upsert tests / Sipariş upsert testleri
-- Idempotency tests / Idempotency testleri
-- Lock behavior tests / Lock davranışı testleri
-- Driver status mapping tests / Driver status mapping testleri
-- Webhook payload parsing tests / Webhook payload parse testleri
+| Test Area | Açıklama |
+|---|---|
+| Contract Binding | Contract binding testleri |
+| Product Sync Flow | Ürün sync flow testleri |
+| Stock Sync Flow | Stok sync flow testleri |
+| Order Upsert | Sipariş upsert testleri |
+| Idempotency | Idempotency testleri |
+| Lock Behavior | Lock davranışı testleri |
+| Driver Status Mapping | Driver status mapping testleri |
+| Webhook Payload Parsing | Webhook payload parse testleri |
 
 ---
 
 ## Tech Stack / Teknoloji
 
-- PHP
-- Composer
-- PSR-4 autoloading
-- Laravel-compatible adapter pattern
-- REST API integration-ready architecture
-- XML integration-ready architecture
-- Marketplace driver architecture
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white)
+![Composer](https://img.shields.io/badge/Composer-885630?style=flat-square&logo=composer&logoColor=white)
+![PSR-4](https://img.shields.io/badge/PSR--4-Autoloading-111827?style=flat-square)
+![REST API](https://img.shields.io/badge/REST_API-2563EB?style=flat-square)
+![XML](https://img.shields.io/badge/XML-FF6600?style=flat-square)
+![Laravel](https://img.shields.io/badge/Laravel-Compatible-F55247?style=flat-square&logo=laravel&logoColor=white)
 
 ---
 
@@ -228,6 +254,14 @@ Yoğun ürün, stok veya sipariş senkronizasyonları canlı ortamda normal web 
 
 ---
 
+## Security Note / Güvenlik Notu
+
+This repository should not include marketplace credentials, customer data, production endpoints, API tokens or private business data.
+
+Bu repo; pazaryeri credential bilgileri, müşteri verileri, canlı endpoint bilgileri, API tokenları veya özel ticari veriler içermemelidir.
+
+---
+
 ## Package Information / Paket Bilgisi
 
 ```text
@@ -236,10 +270,15 @@ Type: library
 Version: 2.0.0
 PHP: >= 8.0
 License: MIT
+```
 
+---
 
-Contact / İletişim
-Developer: Coşkun KOÇ
-Website: https://laragon.com.tr
-Email: entegrame@gmail.com
-LinkedIn: Coşkun KOÇ
+## Contact / İletişim
+
+**Coşkun KOÇ**  
+Full-Stack Developer | Laravel Developer | ERP/POS System Developer
+
+Website: [https://laragon.com.tr](https://laragon.com.tr)  
+Email: [entegrame@gmail.com](mailto:entegrame@gmail.com)  
+LinkedIn: [Coşkun KOÇ](https://www.linkedin.com/in/coşkun-koç-bb6981426)
