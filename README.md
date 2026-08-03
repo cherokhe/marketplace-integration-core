@@ -269,7 +269,7 @@ Package: cherokhe/marketplace-integration-core
 Type: library
 Version: 2.0.0
 PHP: >= 8.0
-License: MIT
+License: GNU General Public License v3.0
 ```
 
 ---
