@@ -69,3 +69,35 @@ vendor/bin/phpunit -c tests/phpunit.xml
 PHP 8.3
 Composer
 PHPUnit
+
+
+## Use Cases
+
+Marketplace product synchronization
+Marketplace stock synchronization
+Marketplace order ingestion
+ERP and POS marketplace integration
+E-commerce integration middleware
+XML and REST API based data integration
+Reusable integration core for Laravel or PHP projects
+
+
+## Tech Stack
+
+PHP 8.1+
+PHP 8.3 recommended
+Composer
+PSR-4 autoloading
+PHPUnit
+Laravel-tested examples
+XML / REST API integration-ready architecture
+
+
+## Project Goal
+
+The goal of MarketplaceIntegrationCore is to provide a reusable, reliable and extensible integration core for marketplace operations.
+It helps reduce repeated integration logic by centralizing product, stock, order, lock, idempotency and audit log workflows.
+
+## License
+GNU General Public License v3.0
+
