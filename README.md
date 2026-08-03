@@ -4,7 +4,7 @@
 ![Composer](https://img.shields.io/badge/Composer-Package-885630?style=for-the-badge&logo=composer&logoColor=white)
 ![Architecture](https://img.shields.io/badge/Architecture-Adapter--Based-2563EB?style=for-the-badge)
 ![Framework](https://img.shields.io/badge/Framework-Agnostic-059669?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-111827?style=for-the-badge)
+![License](https://img.shields.io/badge/License-GNU%20GPL%20v3.0-111827?style=for-the-badge)
 
 **MarketplaceIntegrationCore** is a framework-agnostic PHP core package for marketplace integration workflows.
 
