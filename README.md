@@ -54,8 +54,18 @@ Laravel projeleriyle test edilmiş olsa da, yapı olarak framework bağımsız t
 - Audit log records
 - Feed append scenarios
 
-## Installation
+## Installation Testing
 
 ```bash
 composer install
 composer dump-autoload
+
+## Testing
+
+vendor/bin/phpunit -c tests/phpunit.xml
+
+## Recommended environment
+
+PHP 8.3
+Composer
+PHPUnit
